@@ -1,0 +1,7 @@
+# Limitations and Next Steps
+
+The historical Binance bars establish exact exchange event time, not local receipt of finalized bars. The V1 endpoint `U_event=T` therefore supports an archival association study, not proof of a live executable signal. PM messages have Dell receipt times, but latency, clock error, queue position, fill probability, fees, slippage, and market impact are not measured well enough to infer net trading returns.
+
+Polymarket repricing may predict BTC, react to BTC, or share an information source with BTC. The old sidecar study's rough 1 bp cost haircut failed. Current ledger-based development validation also did not establish an edge over naive. Development dates are few, overlapping short-horizon markets are dependent, longer horizons have small samples, and daily has only four paired validation observations. Settlement-rule equivalence across horizons is not established. The final frozen OOS conclusion remains `PENDING_FINAL_OOS`.
+
+Future research may use prospective local-receipt capture for Binance reference availability, stricter latency and execution studies, independent regimes, and a separately versioned shadow evaluation after the V1 OOS block is spent. Falsification questions include whether apparent PM value survives BTC-only controls, costs, quote staleness, date-level instability, and changes in timestamp basis. Any later feature, threshold, model, or cohort change belongs to a new protocol, not a reinterpretation of the frozen V1 block.
