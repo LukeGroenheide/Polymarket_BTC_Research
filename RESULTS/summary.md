@@ -86,67 +86,74 @@ Paths are relative to the private external `research/` root. SHA-256 values bind
 | 4h | `feature_tables/btc_4h_v1/20260925_T201358Z__btc4h-lifecycle40-v1__af1c0f8/manifest.json` | `634e5eb5afcf657c93bfe214f73d7d05219da24770c321e2fcc37d0e46a1dad3` | `results/btc_4h_v1/20260925_T201358Z__btc4h-lifecycle40-v1__af1c0f8/results.json` | `23162dbda3cad4107436536b04620024ca4b754462b227013683a1a009bb5e61` |
 | 1d | `feature_tables/btc_1d_v1/20260925_T202925Z__btc1d-lifecycle40-v1__1b9c97b/manifest.json` | `7f86cf393fa299aa706a512025b75a597e261eeb9dc56977b30512236e32e3cc` | `results/btc_1d_v1/20260925_T202925Z__btc1d-lifecycle40-v1__1b9c97b/results.json` | `bc912dbdc90edcc5c8445354928df8ced569721820d6ab79a3d5059316bdac3b` |
 
-## FINAL FROZEN OOS — PENDING COMPLETION
+## D. Final frozen OOS — completed
 
-Every cell marked `PENDING_FINAL_OOS` is withheld until the one-shot frozen run has completed and its identities and paired coverage have been verified. No result or conclusion is inferred from partial output. The final OOS runner reports the full frozen battery for all horizons and targets; the publication table below highlights the prespecified PM increment.
+The one-shot evaluation scored all 2,075 selected sessions from July 15–19, 2026 ET. All selected sessions were eligible for the paired comparison. The model, features, split, and scoring protocol were unchanged after the freeze.
 
-- Completion status: `PENDING_FINAL_OOS`
-- OOS run/result artifact identities and hashes by horizon: `PENDING_FINAL_OOS`
-- Freeze identity and source fingerprint verification: `PENDING_FINAL_OOS`
-- Development fit counts verified against immutable artifacts: `PENDING_FINAL_OOS`
+- Execution commit: `40adfac2187eeb350833d5e491c20667cb5d7551`; run ID: `btc-v1-final-oos__40adfac`.
+- Frozen protocol SHA-256: `c302cbc17cd9b81e5b0c87a2bbd86f76f551a0a6de8192e2313f57f41fca40d9`.
+- Final result record: internal Git commit `34a964ea162e194a4cc16ea3ffef072082dda2ef`, `SOURCE_OF_TRUTH/BTC_V1_OOS_RESULTS.md`. The private result artifacts remain under the external research data root.
 
 ### Paired coverage
 
-| Horizon | Frozen selected sessions | OOS paired rows | ET-date coverage |
-| --- | ---: | ---: | --- |
-| 5m | 1440 | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 15m | 480 | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 1h | 120 | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 4h | 30 | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 1d | 5 | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
+| Horizon | Selected and paired OOS rows | ET dates |
+| --- | ---: | --- |
+| 5m | 1,440 | July 15–19, 2026 |
+| 15m | 480 | July 15–19, 2026 |
+| 1h | 120 | July 15–19, 2026 |
+| 4h | 30 | July 15–19, 2026 |
+| 1d | 5 | July 15–19, 2026 |
 
-### Primary y1: paired Ridge comparison
+### Primary y1 comparison
 
-`A−B` is `MSE(A)−MSE(B)`; relative improvement is `(MSE(B)−MSE(A))/MSE(B) × 100%`. Negative A−B and positive relative improvement favor A. MAE and R² use the same paired rows; Pearson r is reported when defined.
+These are Ridge results on identical paired rows. B uses BTC and quote-quality controls; A adds Polymarket level and recent price movement. Lower MSE is better. A positive relative improvement means A beat B. B0 is the paired BTC-only comparator.
 
-| Horizon | B MSE | A MSE | A−B absolute | A relative improvement | B MAE | A MAE | B R² | A R² | B Pearson r | A Pearson r | Naive MSE | B0 MSE |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 5m | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 15m | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 1h | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 4h | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 1d | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
+| Horizon | B MSE | A MSE | A−B MSE | A improvement vs B | Naive MSE | Paired B0 MSE | B / A MAE | B / A R² | B / A Pearson r |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 5m | 1.801451e-07 | 1.796818e-07 | -4.632557e-10 | +0.257% | 1.800388e-07 | 1.800781e-07 | 0.0002715487 / 0.0002717392 | -0.000810629 / 0.001763026 | 0.02816976 / 0.05873852 |
+| 15m | 1.975804e-07 | 1.984374e-07 | 8.570397e-10 | -0.434% | 1.950144e-07 | 1.964373e-07 | 0.0002882006 / 0.0002909796 | -0.01467647 / -0.01907781 | 0.02956018 / 0.03066166 |
+| 1h | 1.464771e-07 | 1.502189e-07 | 3.741787e-09 | -2.555% | 1.395259e-07 | 1.465694e-07 | 0.0002748906 / 0.000277103 | -0.05972973 / -0.08680073 | -0.01385461 / -0.02438201 |
+| 4h | 2.252915e-07 | 2.403527e-07 | 1.506117e-08 | -6.685% | 1.862208e-07 | 2.21277e-07 | 0.0003734654 / 0.000396282 | -0.3841963 / -0.4767324 | 0.03955253 / 0.1744264 |
+| 1d | 1.900202e+22 | 1.917011e+22 | 1.680829e+20 | -0.885% | 2.62087e-07 | 3.54377e-06 | 6.164742e+10 / 6.191948e+10 | -1.745668e+30 / -1.76111e+30 | 0.1864615 / 0.1864615 |
 
-### Prespecified y2 and y5 sensitivity
+At 5m, A had 0.257% lower y1 MSE than B and also narrowly beat naive. The same small A-over-B direction appeared in development validation, where both models lost to naive. At 15m, 1h, 4h, and 1d, A did not beat B. The five-row 1d Ridge result is dominated by an extreme July 16 error; the row remains included under the frozen rule.
 
-| Horizon | y2 B MSE | y2 A MSE | y2 A−B | y5 B MSE | y5 A MSE | y5 A−B |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 5m | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 15m | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 1h | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 4h | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 1d | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
+### Prespecified y2 and y5 checks
 
-Full y1/y2/y5 naive, B0, B, L, A Ridge and fixed boosting MSE/MAE/R²/Pearson r remain in the immutable result artifacts: `PENDING_FINAL_OOS`.
+| Horizon | y2 B MSE | y2 A MSE | y5 B MSE | y5 A MSE |
+| --- | ---: | ---: | ---: | ---: |
+| 5m | 1.800819e-07 | 1.79755e-07 | 1.736079e-07 | 1.734408e-07 |
+| 15m | 1.941551e-07 | 1.957799e-07 | 1.860405e-07 | 1.879522e-07 |
+| 1h | 1.78046e-07 | 1.82233e-07 | 1.840656e-07 | 1.893523e-07 |
+| 4h | 2.239936e-07 | 2.362164e-07 | 1.732362e-07 | 1.979205e-07 |
+| 1d | 1.823392e+22 | 1.840234e+22 | 2.242329e+22 | 2.264458e+22 |
 
-### Fixed-prediction y1 behavior by ET date
+### Behavior by ET date
 
-For each horizon and eligible date, insert row count, B MSE, A MSE, winner, and signed `sum((y-B)^2−(y-A)^2)` from the frozen runner. Singleton daily dates may use raw squared errors. No date-specific refit or post-hoc exclusion.
+The date check uses the same fixed predictions; there was no refit by date. A beat B on all five 5m dates. At 15m and 1h it beat B on one of five dates, at 4h on three, and at 1d on one. Longer-horizon date counts are small, especially the one-row daily dates.
 
-| Horizon | ET date | Paired rows | B MSE | A MSE | Winner | Signed SSE improvement |
-| --- | --- | ---: | ---: | ---: | --- | ---: |
-| PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
+| 5m ET date | Paired rows | B y1 MSE | A y1 MSE |
+| --- | ---: | ---: | ---: |
+| 2026-07-15 | 288 | 2.621164e-07 | 2.611074e-07 |
+| 2026-07-16 | 288 | 2.013813e-07 | 2.012869e-07 |
+| 2026-07-17 | 288 | 2.32564e-07 | 2.322134e-07 |
+| 2026-07-18 | 288 | 5.707277e-08 | 5.68985e-08 |
+| 2026-07-19 | 288 | 1.475908e-07 | 1.469028e-07 |
 
-### Development versus OOS and conclusion
+### Development compared with OOS
 
-| Horizon | Development y1 A−B MSE | Final OOS y1 A−B MSE | Stability across dates | Interpretation |
-| --- | ---: | ---: | --- | --- |
-| 5m | -1.40404e-09 | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 15m | 5.80455e-09 | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 1h | 4.38066e-09 | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 4h | 3.05178e-06 | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
-| 1d | -1.35908e-06 | PENDING_FINAL_OOS | PENDING_FINAL_OOS | PENDING_FINAL_OOS |
+The direction is based on the same A-versus-B y1 MSE comparison. Development was used to choose and freeze V1; the reserved dates were scored once afterward.
 
-Final interpretation: `PENDING_FINAL_OOS`.
+| Horizon | Development A−B MSE | OOS A−B MSE | OOS date wins for A |
+| --- | ---: | ---: | ---: |
+| 5m | -1.40404e-09 | -4.632557e-10 | 5/5 |
+| 15m | 5.80455e-09 | 8.570397e-10 | 1/5 |
+| 1h | 4.38066e-09 | 3.741787e-09 | 1/5 |
+| 4h | 3.05178e-06 | 1.506117e-08 | 3/5 |
+| 1d | -1.35908e-06 | 1.680829e+20 | 1/5 |
 
-Final V1 conclusion: `PENDING_FINAL_OOS`.
+### Final V1 conclusion
+
+The 5-minute result suggests that recent Polymarket price movement may contain a small amount of incremental predictive information beyond the BTC and market-quality controls used here. But the effect is small, the slower horizons did not reproduce it, and the study does not establish a profitable trading edge or live execution performance.
+
+This is an archival event-time association study. Historical Binance bars do not prove that finalized one-second bars were locally available at the decision moment. Five OOS dates and overlapping short-horizon markets provide limited independent regime coverage. Any changed model or protocol would require a new version and a future untouched evaluation block.
