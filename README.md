@@ -59,7 +59,7 @@ The BTC 5-minute development dataset contains 7,548 selected sessions.
 - 31 have incomplete Polymarket information and are left incomplete rather than filled with guessed values.
 - The main comparison uses 5,716 training sessions and 1,801 validation sessions where both models can be evaluated on exactly the same data.
 
-During development, adding the Polymarket price-change feature improved the main model slightly compared with using BTC data plus Polymarket quote-quality information alone.
+During development, Ridge A, which adds Polymarket price level `q` and recent price movement `dq10`, improved slightly over Ridge B, which uses BTC data plus Polymarket quote-quality information.
 
 But both models still performed worse than a simple baseline based on the training average.
 
@@ -81,7 +81,7 @@ The 1-day result also contains an extreme July 16 error. I kept it exactly as th
 
 ### V1 conclusion
 
-The 5-minute result suggests that recent Polymarket price movement may contain a small amount of incremental predictive information beyond the BTC and market-quality controls used here.
+The 5-minute result suggests that the added Polymarket features may contain a small amount of incremental predictive information beyond the BTC and market-quality controls used here.
 
 But the effect is small, the slower horizons did not reproduce it, and this study does not establish a profitable trading edge or live execution performance.
 
@@ -111,7 +111,7 @@ The Binance archive gives exact one-second exchange bars, but it does not tell m
 
 That means a small predictive difference in these results should not automatically be interpreted as something that could have been traded profitably.
 
-I also keep an older sidecar-based Polymarket experiment in the repository as historical research. It used different data and rules and should not be confused with the current ledger-based V1 study.
+I also summarize an older sidecar-based Polymarket experiment as historical research. It used different data and rules and should not be confused with the current ledger-based V1 study.
 
 For more detail, see:
 
@@ -122,6 +122,8 @@ For more detail, see:
 ## Try the public code
 
 The repository includes a small synthetic example showing how the public research code handles a market session without requiring the private historical dataset.
+
+The example requires Python 3.10+ and Matplotlib. See the [setup instructions](CODE/README.md#try-the-synthetic-example).
 
 ```bash
 python3 -B examples/run_synthetic.py

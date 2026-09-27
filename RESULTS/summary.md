@@ -154,6 +154,6 @@ The direction is based on the same A-versus-B y1 MSE comparison. Development was
 
 ### Final V1 conclusion
 
-The 5-minute result suggests that recent Polymarket price movement may contain a small amount of incremental predictive information beyond the BTC and market-quality controls used here. But the effect is small, the slower horizons did not reproduce it, and the study does not establish a profitable trading edge or live execution performance.
+The 5-minute result suggests that the added Polymarket features may contain a small amount of incremental predictive information beyond the BTC and market-quality controls used here. But the effect is small, the slower horizons did not reproduce it, and the study does not establish a profitable trading edge or live execution performance.
 
 This is an archival event-time association study. Historical Binance bars do not prove that finalized one-second bars were locally available at the decision moment. Five OOS dates and overlapping short-horizon markets provide limited independent regime coverage. Any changed model or protocol would require a new version and a future untouched evaluation block.

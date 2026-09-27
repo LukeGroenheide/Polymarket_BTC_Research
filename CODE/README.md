@@ -52,7 +52,7 @@ It is intentionally smaller than the full internal research runners and does not
 
 The repository includes a small example using completely made-up data:
 
-Matplotlib is the only extra dependency for its plot. In an isolated local environment:
+Python 3.10+ is required. Matplotlib is the only extra dependency for its plot. In an isolated local environment:
 
 ```bash
 python3 -m venv .venv
